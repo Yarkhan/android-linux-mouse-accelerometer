@@ -1,0 +1,13 @@
+{
+    "screenWidth": 1600,
+    "screenHeight": 800,
+    "sensitivityX": 1,
+    "sensitivityY": 2,
+    "easeX": 0.1,
+    "easeY": 0.1,
+    "axisX": "z",
+    "axisY": "x",
+    "invertX": false,
+    "invertY": true,
+    "port": 5555
+}
