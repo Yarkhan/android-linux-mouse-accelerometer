@@ -7,18 +7,18 @@ const resolveSensorData = (data,range,threshold,sensitivity,invert) => {
     return data * step * sensitivity + halfRange
 }
 
-const createServer = (config, mouse) =>{
+const createServer = (config, mouse) => {
     const server = dgram.createSocket({
         type: 'udp4',
         reuseAddr: true
     });
 
-    server.on('error', (err) => {
+    server.on('error', err => {
         console.log(`server error:\n${err.stack}`);
         server.close();
     });
 
-    server.on('message', (msg) => {
+    server.on('message', msg => {
         msg = msg.toString().split(',').filter(msg => msg != false)
         let parsedMsg = {x: msg[2], y: msg[3], z: msg[4] }
         let targetX = resolveSensorData(parsedMsg[config.axisX], config.screenWidth, 8 , config.sensitivityX, config.invertX)
